@@ -1,0 +1,25 @@
+nav.navbar {
+  background: black;
+  height: 2em;
+}
+
+.nav-link {
+  color: blue;
+}
+
+.text-rtl {
+  direction: rtl;
+}
+
+a.nav-link.dropdown-toggle {
+  padding-right: 1em;
+}
+
+.account-header {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.banner-container {
+  height: 100%;
+}
