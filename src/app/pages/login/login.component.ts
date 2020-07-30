@@ -1,18 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, map } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
+  public loginResult: string;
+  private returnUrl: string;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+              private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['next'] || '/';
+
+    if (this.authService.hasAuthorization()) {
+      this.router.navigateByUrl(this.returnUrl);
+    }
+
     this.initLoginForm();
   }
 
@@ -22,4 +34,16 @@ export class LoginComponent implements OnInit {
     this.loginForm.addControl('password', new FormControl(undefined, Validators.required));
   }
 
+  public login(): void {
+    this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).pipe(
+      map(() => this.router.navigateByUrl(this.returnUrl)),
+      catchError(error => {
+        this.loginResult = error.error.error;
+        if (error.error.message) {
+          this.loginResult = error.error.message;
+        }
+        return of(undefined);
+      })
+    ).subscribe();
+  }
 }

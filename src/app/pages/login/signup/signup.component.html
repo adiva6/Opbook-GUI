@@ -1,0 +1,32 @@
+<mat-card class="signup-card">
+  <mat-card-header>
+    <mat-card-title>Sign Up for Opbook</mat-card-title>
+    <mat-card-subtitle>And enjoy a whole new study experience</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="column" [formGroup]="signupForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [formControlName]="'name'">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" [formControlName]="'email'">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [formControlName]="'password'">
+        </mat-form-field>
+  <!--      <mat-form-field appearance="fill">-->
+  <!--        <mat-label>Confirm password</mat-label>-->
+  <!--        <input matInput type="password" [formControlName]="'confirmPassword'">-->
+  <!--        <mat-error *ngIf="signupForm.hasError('notSame')">-->
+  <!--          Passwords do not match-->
+  <!--        </mat-error>-->
+  <!--      </mat-form-field>-->
+      </div>
+    </div>
+    <button mat-button [disabled]="!signupForm.valid" (click)="signup()">Sign Up</button>
+  </mat-card-content>
+</mat-card>

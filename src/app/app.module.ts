@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {LayoutModule} from './pages/layout/layout.module';
+import {SignupService} from './services/signup/signup.service';
 
 
 @NgModule({
@@ -33,10 +36,12 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [
-    AuthService, AuthGuard, CourseService, UserService
+    AuthService, AuthGuard, CourseService, UserService, SignupService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,30 @@
-<div class="flex-row align-items-center">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Welcome to Opbook</mat-card-title>
-      <mat-card-subtitle>Sign in to your account</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div [formGroup]="loginForm">
-        <mat-form-field appearance="fill">
-          <mat-label>Email</mat-label>
-          <input matInput type="text" [formControlName]="'email'">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" [formControlName]="'password'">
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<div class="login-image">
+  <div class="align-items-center">
+    <mat-card class="login-card">
+      <mat-card-header>
+        <img class="opbook-logo" src="../../../assets/img/icons/opbookLogo.png">
+        <mat-card-title-group>
+          <mat-card-title>Welcome</mat-card-title>
+          <mat-card-subtitle>Sign in to your account</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div [formGroup]="loginForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" [formControlName]="'email'">
+          </mat-form-field>
+          <mat-form-field class="ml-1 mr-1" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [formControlName]="'password'">
+          </mat-form-field>
+          <button mat-button [disabled]="!loginForm.valid" (click)="login()">Log In</button>
+        </div>
+        <ng-container *ngIf="loginResult">
+          <mat-label>{{ loginResult }}</mat-label>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+    <app-signup></app-signup>
+  </div>
 </div>
