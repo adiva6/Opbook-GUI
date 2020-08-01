@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-account-logout',
   templateUrl: './account-logout.component.html',
   styleUrls: ['./account-logout.component.css']
 })
-export class AccountLogoutComponent implements OnInit {
+export class AccountLogoutComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() {
+  public logout(): void {
+    this.authService.logout();
   }
-
 }

@@ -69,7 +69,7 @@ export class AuthService {
     this.userObservable$ = this.httpClient.get(environment.SERVER_ADDRESS + '/user', { headers: headers })
       .pipe(map(data => {
         this.user = User.parseJson(data);
-        localStorage.setItem(AuthService.USERNAME_KEY, data['email']);
+        localStorage.setItem(AuthService.USERNAME_KEY, data['name']);
         return this.user;
       }),
       finalize(() => {

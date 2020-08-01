@@ -1,11 +1,6 @@
-<nav class="navbar navbar-expand">
-  <div class="banner-container mx-3">
-    <app-opbook-banner></app-opbook-banner>
-  </div>
-
-  <ul class="nav navbar-nav ml-auto d-flex flex-row align-items-center">
-    <li class="nav-item">
-      <app-account-logout></app-account-logout>
-    </li>
-  </ul>
-</nav>
+<mat-toolbar>
+  <img class="opbook-logo" src="../../../assets/img/icons/opbookLogo2.png">
+  <span class="hello-user">Hello, {{username}}</span>
+  <span class="spacer"></span>
+  <app-account-logout></app-account-logout>
+</mat-toolbar>

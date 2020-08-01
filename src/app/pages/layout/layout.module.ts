@@ -10,27 +10,31 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { FeedComponent } from './feed/feed.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { PostComponent } from './feed/post/post.component';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        LayoutRoutingModule,
-        HeaderModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatButtonModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LayoutRoutingModule,
+    HeaderModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatSidenavModule
+  ],
   exports: [
     SignupComponent
   ],
   declarations: [
     LayoutComponent,
     SignupComponent,
-    FeedComponent
+    FeedComponent,
+    PostComponent
   ]
 })
 export class LayoutModule {

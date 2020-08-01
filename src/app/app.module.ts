@@ -20,6 +20,7 @@ import {LayoutModule} from './pages/layout/layout.module';
 import {SignupService} from './services/signup/signup.service';
 import {AlertService} from './services/alert/alert.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {PostService} from './services/post/post.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   providers: [
-    AuthService, AuthGuard, CourseService, UserService, SignupService, AlertService
+    AuthService, AuthGuard, CourseService, UserService, SignupService, AlertService, PostService
   ],
   bootstrap: [AppComponent]
 })

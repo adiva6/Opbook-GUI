@@ -1,6 +1,13 @@
 <app-header class="sticky-top"></app-header>
-<div class="d-flex flex-row w-100">
-  <main class="main w-100">
-    <router-outlet></router-outlet>
-  </main>
-</div>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+    Sidenav
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <div class="example-sidenav-content">
+    <main class="main w-100">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

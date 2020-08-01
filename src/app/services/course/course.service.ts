@@ -14,4 +14,10 @@ export class CourseService {
       map((rawCourses: any[]) => rawCourses.map(Course.parseJson))
     );
   }
+
+  public getAllCourseOfStudent(userId: number): Observable<Course[]> {
+    return this.httpClient.get('/user/' + userId + '/courses').pipe(
+      map((rawCourses: any[]) => rawCourses.map(Course.parseJson))
+    );
+  }
 }

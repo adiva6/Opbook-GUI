@@ -1,25 +1,16 @@
-nav.navbar {
-  background: black;
-  height: 2em;
+.opbook-logo {
+  height: 60px;
+  width: 80px;
+  margin: -6px 0 0 -5px;
 }
 
-.nav-link {
-  color: blue;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.text-rtl {
-  direction: rtl;
-}
-
-a.nav-link.dropdown-toggle {
-  padding-right: 1em;
-}
-
-.account-header {
-  font-size: 1.25em;
-  text-align: center;
-}
-
-.banner-container {
-  height: 100%;
+.hello-user {
+  color: #0f3475;
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  border-left: 1px solid #2e58a0;
 }
