@@ -11,7 +11,7 @@ export class SignupService {
   }
 
   public signup(user: User): Observable<User> {
-    return this.httpClient.post(environment.SERVER_ADDRESS + '/users', user.serialize()).pipe(
+    return this.httpClient.post(environment.SERVER_ADDRESS + '/sign-up', user.serialize()).pipe(
       map(User.parseJson)
     );
   }

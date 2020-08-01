@@ -23,16 +23,16 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {
   }
 
-  public login(username: string, password: string) {
+  public login(email: string, password: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.httpClient.post(environment.SERVER_ADDRESS + '/authenticate',
-      { username, password }, { headers })
+      { email, password }, { headers })
       .pipe(map(data => {
-        this.username = username;
+        this.username = email;
         this.isLoggedIn = true;
-        localStorage.setItem(AuthService.AUTH_KEY, 'Bearer ' + data['access_token']);
-        return { username, accessToken: data['access_token'] };
+        localStorage.setItem(AuthService.AUTH_KEY, 'Bearer ' + data['token']);
+        return { username: email, accessToken: data['token'] };
       }));
   }
 
@@ -69,7 +69,7 @@ export class AuthService {
     this.userObservable$ = this.httpClient.get(environment.SERVER_ADDRESS + '/user', { headers: headers })
       .pipe(map(data => {
         this.user = User.parseJson(data);
-        localStorage.setItem(AuthService.USERNAME_KEY, data['username']);
+        localStorage.setItem(AuthService.USERNAME_KEY, data['email']);
         return this.user;
       }),
       finalize(() => {
@@ -111,7 +111,7 @@ export class AuthService {
 
   public hasAuthorization(): boolean {
     const key = localStorage.getItem(AuthService.AUTH_KEY);
-    return key != null && key.startsWith('JWT');
+    return key != null && key.startsWith('Bearer');
   }
 
   public getAuthToken(): string {

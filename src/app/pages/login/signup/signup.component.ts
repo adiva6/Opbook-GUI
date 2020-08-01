@@ -4,6 +4,9 @@ import { SignupService } from '../../../services/signup/signup.service';
 import { User } from '../../../models/user/user';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
+import {catchError, tap} from 'rxjs/operators';
+import {AlertService} from '../../../services/alert/alert.service';
+import {of} from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +19,8 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router,
               private formBuilder: FormBuilder,
               private signupService: SignupService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.initSignupForm();
@@ -40,10 +44,16 @@ export class SignupComponent implements OnInit {
   public signup(): void {
     const user = new User(this.signupForm.get('name').value,
       this.signupForm.get('email').value, false, this.signupForm.get('password').value);
-    this.signupService.signup(user).subscribe(() => {
-      this.authService.login(user.email, user.password).subscribe(() => {
-        this.router.navigateByUrl('/home');
-      });
-    });
+    this.signupService.signup(user).pipe(
+      tap(() => {
+        this.authService.login(user.email, user.password).subscribe(() => {
+            this.router.navigateByUrl('/home');
+          });
+      }),
+      catchError(err => {
+        this.alertService.error(err.error);
+        return of(undefined);
+      })
+    ).subscribe();
   }
 }

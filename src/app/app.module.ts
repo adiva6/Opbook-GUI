@@ -18,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {LayoutModule} from './pages/layout/layout.module';
 import {SignupService} from './services/signup/signup.service';
+import {AlertService} from './services/alert/alert.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -38,10 +40,11 @@ import {SignupService} from './services/signup/signup.service';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    MatSnackBarModule
   ],
   providers: [
-    AuthService, AuthGuard, CourseService, UserService, SignupService
+    AuthService, AuthGuard, CourseService, UserService, SignupService, AlertService
   ],
   bootstrap: [AppComponent]
 })

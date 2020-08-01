@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map } from 'rxjs/operators';
 import { of } from 'rxjs';
+import {AlertService} from '../../services/alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,11 @@ export class LoginComponent implements OnInit {
   public loginResult: string;
   private returnUrl: string;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService,
-              private router: Router, private route: ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams['next'] || '/';
@@ -37,11 +41,8 @@ export class LoginComponent implements OnInit {
   public login(): void {
     this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).pipe(
       map(() => this.router.navigateByUrl(this.returnUrl)),
-      catchError(error => {
-        this.loginResult = error.error.error;
-        if (error.error.message) {
-          this.loginResult = error.error.message;
-        }
+      catchError(_ => {
+        this.alertService.error('Authentication failed');
         return of(undefined);
       })
     ).subscribe();
