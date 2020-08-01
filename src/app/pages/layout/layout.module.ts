@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   declarations: [
     LayoutComponent,
-    SignupComponent
+    SignupComponent,
+    FeedComponent
   ]
 })
 export class LayoutModule {

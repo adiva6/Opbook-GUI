@@ -27,7 +27,7 @@ export class AuthService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.httpClient.post(environment.SERVER_ADDRESS + '/authenticate',
-      { username: username, password: password }, { headers: headers })
+      { username, password }, { headers })
       .pipe(map(data => {
         this.username = username;
         this.isLoggedIn = true;
