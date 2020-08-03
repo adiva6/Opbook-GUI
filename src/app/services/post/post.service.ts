@@ -9,8 +9,8 @@ export class PostService {
   constructor(private httpClient: HttpClient) {
   }
 
-  public getPostsByCourse(courseId: number): Observable<Post[]> {
-    return this.httpClient.get('/course/' + courseId + '/posts').pipe(
+  public getPostsByCourse(courseSymbol: string): Observable<Post[]> {
+    return this.httpClient.get('/courses/' + courseSymbol + '/posts').pipe(
       map((rawPosts: any[]) => rawPosts.map(Post.parseJson))
     );
   }

@@ -9,9 +9,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { FeedComponent } from './feed/feed.component';
+import { HomeComponent } from './feed/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { PostComponent } from './feed/post/post.component';
+import { CoursesMenuComponent } from './courses-menu/courses-menu.component';
+import {MatListModule} from '@angular/material/list';
+import { CoursePageComponent } from './course-page/course-page.component';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { PostComponent } from './feed/post/post.component';
     MatInputModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     SignupComponent
@@ -33,8 +37,10 @@ import { PostComponent } from './feed/post/post.component';
   declarations: [
     LayoutComponent,
     SignupComponent,
-    FeedComponent,
-    PostComponent
+    HomeComponent,
+    PostComponent,
+    CoursesMenuComponent,
+    CoursePageComponent
   ]
 })
 export class LayoutModule {

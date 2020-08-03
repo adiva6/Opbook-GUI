@@ -1,7 +1,8 @@
 <app-header class="sticky-top"></app-header>
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
-    Sidenav
+    My Courses
+    <app-courses-menu [user]="user"></app-courses-menu>
   </mat-sidenav>
   <mat-sidenav-content>
   <div class="example-sidenav-content">
