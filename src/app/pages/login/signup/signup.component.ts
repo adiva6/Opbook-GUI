@@ -31,7 +31,6 @@ export class SignupComponent implements OnInit {
     this.signupForm.addControl('name', new FormControl(undefined, Validators.required));
     this.signupForm.addControl('email', new FormControl(undefined, [Validators.required, Validators.email]));
     this.signupForm.addControl('password', new FormControl(undefined, Validators.required));
-    // this.signupForm.addControl('confirmPassword', new FormControl(undefined, this.checkPasswords));
   }
 
   private checkPasswords = () => {

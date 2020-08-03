@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from '../../../models/post/post';
 import {tap} from 'rxjs/operators';
 import {Course} from '../../../models/course/course';
-import {PostService} from '../../../services/post/post.service';
 import {CourseService} from '../../../services/course/course.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -13,9 +11,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CoursePageComponent implements OnInit {
   public course: Course;
-  public posts: Post[];
 
-  constructor(private courseService: CourseService, private postService: PostService, private route: ActivatedRoute) { }
+  constructor(private courseService: CourseService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initCourse();
@@ -26,15 +23,7 @@ export class CoursePageComponent implements OnInit {
     this.courseService.getCourseBySymbol(courseSymbol).pipe(
       tap(course => {
         this.course = course;
-        this.initPosts(course);
       })
-    );
-  }
-
-  private initPosts(course: Course): void {
-    this.postService.getPostsByCourse(course.courseSymbol).pipe(
-      tap(posts => this.posts = posts)
     ).subscribe();
   }
-
 }

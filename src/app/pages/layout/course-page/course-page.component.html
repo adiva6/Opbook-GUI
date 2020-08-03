@@ -1,5 +1,13 @@
-<div class="posts-feed">
-  <ng-container *ngFor="let post of posts">
-    <app-post [post]="post"></app-post>
-  </ng-container>
-</div>
+<ng-container *ngIf="course">
+  <mat-tab-group>
+    <mat-tab label="Feed">
+      <app-posts [course]="course"></app-posts>
+    </mat-tab>
+    <mat-tab label="Lectures">
+      <app-lectures [course]="course"></app-lectures>
+    </mat-tab>
+    <mat-tab label="Review">
+      <app-review [course]="course"></app-review>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
