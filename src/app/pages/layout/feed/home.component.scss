@@ -1,0 +1,21 @@
+.student-home {
+  background-image: url('../../../../assets/img/icons/circle-cropped.png');
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-top: -5%;
+}
+
+.student-message {
+  font-weight: bold;
+  font-size: 20px;
+  color: #0f3475;
+  display: flex;
+  align-self: center;
+  margin-top: 13em;
+  user-select: none;
+}

@@ -1,30 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Course } from '../../models/course/course';
 import {Observable, of} from 'rxjs';
+import {environment} from '../../../environments/environment';
+import {HttpHandler} from '../../utils/http/http-handler';
 
 @Injectable()
 export class CourseService {
   private selectedCourse: Course;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpHandler: HttpHandler) {
   }
 
   public getAllCourses(): Observable<Course[]> {
-    return this.httpClient.get('/courses').pipe(
+    return this.httpHandler.get(environment.SERVER_ADDRESS, 'courses').pipe(
       map((rawCourses: any[]) => rawCourses.map(Course.parseJson))
     );
   }
 
   public getAllCourseOfStudent(userId: number): Observable<Course[]> {
-    return this.httpClient.get('/users/' + userId + '/courses').pipe(
+    return this.httpHandler.get(environment.SERVER_ADDRESS, 'users/' + userId + '/courses').pipe(
       map((rawCourses: any[]) => rawCourses.map(Course.parseJson))
     );
   }
 
   public getCourseBySymbol(courseSymbol: string): Observable<Course> {
-    return this.httpClient.get('/courses/' + courseSymbol).pipe(
+    return this.httpHandler.get(environment.SERVER_ADDRESS, 'courses/' + courseSymbol).pipe(
       map(Course.parseJson)
     );
   }

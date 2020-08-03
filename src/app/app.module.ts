@@ -21,6 +21,7 @@ import {SignupService} from './services/signup/signup.service';
 import {AlertService} from './services/alert/alert.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {PostService} from './services/post/post.service';
+import {HttpHandler} from './utils/http/http-handler';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import {PostService} from './services/post/post.service';
     MatSnackBarModule
   ],
   providers: [
-    AuthService, AuthGuard, CourseService, UserService, SignupService, AlertService, PostService
+    AuthService, AuthGuard, CourseService, UserService, SignupService, AlertService, PostService, HttpHandler
   ],
   bootstrap: [AppComponent]
 })

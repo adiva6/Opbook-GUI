@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user/user';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
+import {HttpHandler} from '../../utils/http/http-handler';
 
 @Injectable()
 export class SignupService {
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpHandler: HttpHandler) {
   }
 
   public signup(user: User): Observable<User> {
-    return this.httpClient.post(environment.SERVER_ADDRESS + '/sign-up', user.serialize()).pipe(
+    return this.httpHandler.post(environment.SERVER_ADDRESS, 'sign-up', user.serialize()).pipe(
       map(User.parseJson)
     );
   }
