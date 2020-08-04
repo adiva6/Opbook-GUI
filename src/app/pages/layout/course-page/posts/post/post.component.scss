@@ -1,16 +1,4 @@
-.post-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.user-pic {
-  flex: 25%;
-  display: flex;
-  flex-direction: column;
-}
-
-.post-body {
-  flex: 75%;
-  display: flex;
-  flex-direction: column;
+.avatar-image {
+  background-image: url('../../../../../../assets/img/icons/avatar-icon.png');
+  background-size: cover;
 }
