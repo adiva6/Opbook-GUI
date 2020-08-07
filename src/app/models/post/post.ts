@@ -29,10 +29,14 @@ export class Post {
 
     if (data.comments) {
       post.comments = data.comments.map(PostComment.parseJson);
+    } else {
+      post.comments = [];
     }
 
     if (data.studentsWhoLiked) {
       post.usersWhoLiked = data.studentsWhoLiked.map(User.parseJson);
+    } else {
+      post.usersWhoLiked = [];
     }
 
     if (data.creationTime) {
