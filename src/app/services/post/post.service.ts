@@ -15,4 +15,11 @@ export class PostService {
       map((rawPosts: any[]) => rawPosts.map(Post.parseJson))
     );
   }
+
+  public submitPost(courseSymbol: string, post: Post): Observable<Post> {
+    return this.httpHandler.post(environment.SERVER_ADDRESS,
+        'courses/' + courseSymbol + '/posts', post.serialize()).pipe(
+        map(Post.parseJson)
+    );
+  }
 }

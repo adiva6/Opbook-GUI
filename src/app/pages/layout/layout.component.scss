@@ -1,6 +1,7 @@
 .sticky-top {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1022;
 }
 
@@ -9,11 +10,7 @@
 }
 
 .example-container {
-  position: absolute;
-  top: 60px;
-  bottom: 60px;
-  left: 0;
-  right: 0;
+  padding-top: 60px;
   height: 100%;
 }
 

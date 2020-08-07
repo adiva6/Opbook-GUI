@@ -41,4 +41,11 @@ export class Post {
 
     return post;
   }
+
+  public serialize(): object {
+    return {
+      'title': this.title,
+      'content': this.content
+    };
+  }
 }

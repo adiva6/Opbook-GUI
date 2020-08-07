@@ -23,6 +23,7 @@ import {PostCommentFormComponent} from './course-page/posts/post/post-comment-fo
 import {MatIconModule} from '@angular/material/icon';
 import {PostCommentsComponent} from './course-page/posts/post/post-comments/post-comments.component';
 import {TimeAgoExtendsPipe} from "../../pipes/time-ago-pipe";
+import { PostFormComponent } from './course-page/posts/post-form/post-form.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {TimeAgoExtendsPipe} from "../../pipes/time-ago-pipe";
         ReviewComponent,
         PostCommentFormComponent,
         PostCommentsComponent,
-        TimeAgoExtendsPipe
+        TimeAgoExtendsPipe,
+        PostFormComponent
     ]
 })
 export class LayoutModule {

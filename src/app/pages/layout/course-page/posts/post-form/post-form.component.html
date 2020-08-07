@@ -1,0 +1,30 @@
+<mat-card class="post-form" [formGroup]="postForm">
+    <mat-card-header>
+        <div mat-card-avatar class="lightbulb-image"></div>
+        <mat-card-title class="whats-mind">
+            <div>What's on your mind, {{username}}?</div>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="post-form-card-content">
+        <mat-form-field class="post-form-title">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" [formControlName]="'title'">
+        </mat-form-field>
+        <mat-form-field class="post-form-content">
+            <mat-label>Content</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"
+                      [formControlName]="'content'">
+        </textarea>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="post-actions" align="end">
+        <mat-divider></mat-divider>
+        <button class="submit-btn" mat-button [disabled]="!postForm.valid" (click)="submitPost()">
+            Submit
+        </button>
+    </mat-card-actions>
+</mat-card>
