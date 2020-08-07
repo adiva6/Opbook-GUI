@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Course} from '../../../../models/course/course';
 import {PostService} from '../../../../services/post/post.service';
 import {tap} from 'rxjs/operators';
@@ -9,7 +9,7 @@ import {Post} from '../../../../models/post/post';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnChanges {
   @Input() course: Course;
 
   public posts: Post[];
@@ -20,9 +20,14 @@ export class PostsComponent implements OnInit {
     this.initPosts();
   }
 
+  ngOnChanges(): void {
+    this.initPosts();
+  }
+
   private initPosts(): void {
     this.postService.getPostsByCourse(this.course.courseSymbol).pipe(
-      tap(posts => this.posts = posts)
+      tap(posts => this.posts = posts.sort((p1, p2) =>
+        p2.creationTime.getTime() - p1.creationTime.getTime()))
     ).subscribe();
   }
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {tap} from 'rxjs/operators';
+import {filter, tap} from 'rxjs/operators';
 import {Course} from '../../../models/course/course';
 import {CourseService} from '../../../services/course/course.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-course-page',
@@ -12,10 +12,15 @@ import {ActivatedRoute} from '@angular/router';
 export class CoursePageComponent implements OnInit {
   public course: Course;
 
-  constructor(private courseService: CourseService, private route: ActivatedRoute) { }
+  constructor(private courseService: CourseService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initCourse();
+    this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd))
+      .subscribe(_ => this.initCourse());
   }
 
   private initCourse(): void {

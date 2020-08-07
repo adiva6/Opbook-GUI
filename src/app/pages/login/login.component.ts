@@ -39,12 +39,14 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).pipe(
-      map(() => this.router.navigateByUrl(this.returnUrl)),
-      catchError(_ => {
-        this.alertService.error('Authentication failed');
-        return of(undefined);
-      })
-    ).subscribe();
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value).pipe(
+          map(() => this.router.navigateByUrl(this.returnUrl)),
+          catchError(_ => {
+            this.alertService.error('Authentication failed');
+            return of(undefined);
+          })
+      ).subscribe();
+    }
   }
 }

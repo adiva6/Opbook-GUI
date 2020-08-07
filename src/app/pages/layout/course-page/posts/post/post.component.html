@@ -1,16 +1,50 @@
 <mat-card class="post-card">
   <mat-card-header>
     <div mat-card-avatar class="avatar-image"></div>
-    <mat-card-title>{{post.title}}</mat-card-title>
-    <mat-card-subtitle>{{post.submitter.name}}</mat-card-subtitle>
+    <mat-card-title class="post-title">
+      {{post.title}} <div class="post-submitter">{{post.submitter.name}}</div>
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{post.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
+    </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
       {{post.content}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>COMMENT</button>
+  <mat-card-content class="no-margin-bottom">
+    <div class="comments-likes">
+      <div *ngIf="countLikes > 0" class="likes-meta">
+        <mat-icon class="like-icon">
+            <span class="material-icons">
+                thumb_up
+            </span>
+        </mat-icon>
+        <p class="likes-number">{{countLikes}}</p>
+      </div>
+      <div class="comments-meta">
+        <a (click)="showComments=!showComments">
+          <p class="comments-number">{{countComments}} Comments</p>
+        </a>
+      </div>
+    </div>
+    <div *ngIf="showComments" class="all-comments">
+      <app-post-comments [comments]="post.comments"></app-post-comments>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="no-margin-bottom no-padding-top">
+    <mat-divider></mat-divider>
+    <button *ngIf="!showLike" mat-button (click)="dislikePost()">DISLIKE</button>
+    <button *ngIf="showLike" mat-button (click)="likePost()">LIKE</button>
+    <button mat-button (click)="showCommentForm=true">COMMENT</button>
+    <mat-divider></mat-divider>
   </mat-card-actions>
+  <mat-card-content>
+    <app-post-comment-form
+            [post]=post
+            *ngIf="showCommentForm"
+            (commentSubmitted)="updateComments($event)">
+    </app-post-comment-form>
+  </mat-card-content>
 </mat-card>

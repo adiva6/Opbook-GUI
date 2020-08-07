@@ -1,1 +1,13 @@
-<p>post-comment works!</p>
+<div [formGroup]="commentForm">
+    <mat-form-field class="comment-content" appearance="fill">
+        <mat-label>Write a comment...</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"
+                  [formControlName]="'content'"
+                  (keyup.enter)="submitComment()">
+        </textarea>
+    </mat-form-field>
+</div>

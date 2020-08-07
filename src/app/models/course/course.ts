@@ -15,6 +15,8 @@ export class Course {
 
     if (data.students) {
       course.students = data.students.map(User.parseJson);
+    } else {
+      course.students = [];
     }
 
     return course;
