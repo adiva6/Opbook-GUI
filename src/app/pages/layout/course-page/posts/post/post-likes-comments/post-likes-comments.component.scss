@@ -1,0 +1,36 @@
+.like-icon {
+  color: #5294e2;
+  margin-right: 5px;
+}
+
+.comments-likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comments-number {
+  color: dimgrey;
+  cursor: pointer;
+}
+
+.comments-number:hover {
+  text-decoration: underline;
+}
+
+.likes-number {
+  padding-top: 5px;
+  margin-bottom: 0 !important;
+  color: dimgrey;
+}
+
+.likes-meta {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.comments-meta {
+  align-self: flex-end;
+  padding-top: 5px;
+}
