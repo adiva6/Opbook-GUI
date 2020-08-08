@@ -1,11 +1,19 @@
 .submitter-name {
   font-weight: bold;
-  align-self: flex-start;
+}
+
+.ref-time-button {
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.ref-time-button:hover {
+  text-decoration: underline;
 }
 
 .comment-creation-time {
-  align-self: flex-end;
   color: lightgrey;
+  top: 0;
 }
 
 .comment {
@@ -21,4 +29,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.comment-title-start {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 }

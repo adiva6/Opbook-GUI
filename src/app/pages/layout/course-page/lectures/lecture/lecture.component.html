@@ -17,7 +17,8 @@
             </a>
         </div>
         <div *ngIf="showComments" class="all-comments">
-            <app-lecture-comments [comments]="lecture.comments">
+            <app-lecture-comments (jumpToReference)="videoPlayer.seek($event)"
+                                  [comments]="lecture.comments">
             </app-lecture-comments>
         </div>
     </mat-card-content>
@@ -29,7 +30,7 @@
     <mat-card-content>
         <app-lecture-comment-form
                 [lecture]=lecture
-                [videoDuration]="videoDuration"
+                [player]="videoPlayer"
                 *ngIf="showCommentForm"
                 (commentSubmitted)="updateComments($event)">
         </app-lecture-comment-form>

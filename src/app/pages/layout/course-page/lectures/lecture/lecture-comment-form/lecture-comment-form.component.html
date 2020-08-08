@@ -1,8 +1,20 @@
 <div [formGroup]="commentForm">
-    <mat-form-field appearance="fill">
-        <mat-label>Seconds Reference</mat-label>
-        <input matInput type="number" [formControlName]="'referenceTime'">
-    </mat-form-field>
+    <div class="ref-time-controls">
+        <mat-form-field class="time-control" appearance="fill">
+            <mat-label>Hours</mat-label>
+            <input matInput type="number" [formControlName]="'referenceTimeHours'">
+        </mat-form-field>
+        <p class="dots">:</p>
+        <mat-form-field class="time-control" appearance="fill">
+            <mat-label>Minutes</mat-label>
+            <input matInput type="number" [formControlName]="'referenceTimeMinutes'">
+        </mat-form-field>
+        <p class="dots">:</p>
+        <mat-form-field class="time-control" appearance="fill">
+            <mat-label>Seconds</mat-label>
+            <input matInput type="number" [formControlName]="'referenceTimeSeconds'">
+        </mat-form-field>
+    </div>
     <mat-form-field class="comment-content" appearance="fill">
         <mat-label>Write a comment...</mat-label>
         <textarea matInput

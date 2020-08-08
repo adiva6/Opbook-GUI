@@ -2,12 +2,12 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {YouTubePlayer} from '@angular/youtube-player';
 
 @Component({
-    template: '<youtube-player [videoId]="videoId" (ready)="playerReady.emit(readyMessage)"></youtube-player>',
+    template: '<youtube-player #youTubePlayer [videoId]="videoId" (ready)="playerReady.emit(readyMessage)"></youtube-player>',
     selector: 'app-video'
 })
 export class VideoComponent implements OnInit {
     @Input() videoId: string;
-    @ViewChild('youtube-player') player: YouTubePlayer;
+    @ViewChild('youTubePlayer') player: YouTubePlayer;
     @Output() playerReady: EventEmitter<string> = new EventEmitter<string>();
     public readyMessage = 'Ready';
 

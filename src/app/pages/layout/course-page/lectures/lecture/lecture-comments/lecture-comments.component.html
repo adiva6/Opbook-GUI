@@ -1,6 +1,11 @@
 <div class="comment" *ngFor="let comment of comments">
     <div class="comment-title">
-        <div class="submitter-name">{{comment.submitter.name}}</div>
+        <div class="comment-title-start">
+            <div class="submitter-name">{{comment.submitter.name}}</div>
+            <div *ngIf="comment.referenceTimeSeconds" class="ref-time-button">
+                <a (click)="jumpToReference.emit(comment.referenceTimeSeconds)">Jump to reference</a>
+            </div>
+        </div>
         <div class="comment-creation-time">
             {{comment.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
         </div>

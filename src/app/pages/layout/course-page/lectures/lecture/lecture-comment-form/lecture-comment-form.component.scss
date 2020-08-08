@@ -1,3 +1,19 @@
 .comment-content {
   width: 100%;
 }
+
+.ref-time-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.dots {
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.time-control {
+  width: 6em;
+}
