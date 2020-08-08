@@ -1,0 +1,9 @@
+<div class="comment" *ngFor="let comment of comments">
+    <div class="comment-title">
+        <div class="submitter-name">{{comment.submitter.name}}</div>
+        <div class="comment-creation-time">
+            {{comment.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
+        </div>
+    </div>
+    <div class="comment-content">{{comment.content}}</div>
+</div>

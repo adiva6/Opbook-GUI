@@ -8,7 +8,7 @@
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="lecture-video">
-        <app-video [videoId]="lecture.link"></app-video>
+        <app-video #videoPlayer (playerReady)="updateDuration()" [videoId]="lecture.link"></app-video>
     </mat-card-content>
     <mat-card-content class="no-margin-bottom">
         <div *ngIf="countComments > 0" class="comments-meta">
@@ -17,7 +17,8 @@
             </a>
         </div>
         <div *ngIf="showComments" class="all-comments">
-<!--            <app-post-comments [comments]="post.comments"></app-post-comments>-->
+            <app-lecture-comments [comments]="lecture.comments">
+            </app-lecture-comments>
         </div>
     </mat-card-content>
     <mat-card-actions class="no-margin-bottom no-padding-top">
@@ -25,11 +26,12 @@
         <button mat-button (click)="showCommentForm=!showCommentForm">COMMENT</button>
         <mat-divider></mat-divider>
     </mat-card-actions>
-<!--    <mat-card-content>-->
-<!--        <app-post-comment-form-->
-<!--                [post]=post-->
-<!--                *ngIf="showCommentForm"-->
-<!--                (commentSubmitted)="updateComments($event)">-->
-<!--        </app-post-comment-form>-->
-<!--    </mat-card-content>-->
+    <mat-card-content>
+        <app-lecture-comment-form
+                [lecture]=lecture
+                [videoDuration]="videoDuration"
+                *ngIf="showCommentForm"
+                (commentSubmitted)="updateComments($event)">
+        </app-lecture-comment-form>
+    </mat-card-content>
 </mat-card>

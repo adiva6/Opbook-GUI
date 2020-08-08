@@ -12,11 +12,11 @@
         <div [formGroup]="loginForm">
           <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput type="text" (keyup.enter)="login()" [formControlName]="'email'">
+            <input matInput type="text" (keydown.enter)="login()" [formControlName]="'email'">
           </mat-form-field>
           <mat-form-field class="ml-1 mr-1" appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput type="password" (keyup.enter)="login()" [formControlName]="'password'">
+            <input matInput type="password" (keydown.enter)="login()" [formControlName]="'password'">
           </mat-form-field>
           <button mat-button [disabled]="!loginForm.valid" (click)="login()">Log In</button>
         </div>

@@ -26,6 +26,7 @@ import {PostCommentService} from "./services/post-comment/post-comment.service";
 import {LikeService} from "./services/like/like.service";
 import {CourseGuard} from "./guards/course/course.guard";
 import {LectureService} from "./services/lecture/lecture.service";
+import {LectureCommentService} from "./services/lecture-comment/lecture-comment.service";
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import {LectureService} from "./services/lecture/lecture.service";
   ],
   providers: [
     AuthService, AuthGuard, CourseGuard, CourseService, UserService, SignupService, AlertService,
-    PostService, HttpHandler, PostCommentService, LikeService, LectureService
+    PostService, HttpHandler, PostCommentService, LikeService, LectureService, LectureCommentService
   ],
   bootstrap: [AppComponent]
 })

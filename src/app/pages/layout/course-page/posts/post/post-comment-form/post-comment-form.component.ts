@@ -11,7 +11,7 @@ import {User} from '../../../../../../models/user/user';
 @Component({
   selector: 'app-post-comment-form',
   templateUrl: './post-comment-form.component.html',
-  styleUrls: ['./post-comment-form.component.css']
+  styleUrls: ['./post-comment-form.component.scss']
 })
 export class PostCommentFormComponent implements OnInit {
   @Input() post: Post;
@@ -48,15 +48,16 @@ export class PostCommentFormComponent implements OnInit {
   }
 
   public submitComment(): void {
-    if (this.commentForm.valid) {
-      const contentControl = this.commentForm.get('content');
+    const contentControl = this.commentForm.get('content');
+    if (this.commentForm.valid && !!contentControl.value) {
       const comment = new PostComment(contentControl.value);
       this.postCommentService.submitPostComment(this.post, comment).pipe(
           tap(submittedComment => {
             this.commentSubmitted.emit(submittedComment);
+            this.commentForm.reset();
           })
         ).subscribe();
-      contentControl.reset();
     }
+    this.commentForm.reset();
   }
 }

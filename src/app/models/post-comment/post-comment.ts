@@ -1,5 +1,5 @@
-import {User} from "../user/user";
-import {Post} from "../post/post";
+import {User} from '../user/user';
+import {Post} from '../post/post';
 
 export class PostComment {
     public id: number;
@@ -31,7 +31,7 @@ export class PostComment {
 
     public serialize(): object {
         return {
-            'content': this.content
+            content: this.content
         };
     }
 }

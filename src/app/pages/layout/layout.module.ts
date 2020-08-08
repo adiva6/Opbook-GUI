@@ -27,6 +27,8 @@ import { PostFormComponent } from './course-page/posts/post-form/post-form.compo
 import {RouterModule} from "@angular/router";
 import { LectureComponent } from './course-page/lectures/lecture/lecture.component';
 import {VideoModule} from "../../common/video/video.module";
+import { LectureCommentsComponent } from './course-page/lectures/lecture/lecture-comments/lecture-comments.component';
+import { LectureCommentFormComponent } from './course-page/lectures/lecture/lecture-comment-form/lecture-comment-form.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import {VideoModule} from "../../common/video/video.module";
         PostCommentsComponent,
         TimeAgoExtendsPipe,
         PostFormComponent,
-        LectureComponent
+        LectureComponent,
+        LectureCommentsComponent,
+        LectureCommentFormComponent
     ]
 })
 export class LayoutModule {

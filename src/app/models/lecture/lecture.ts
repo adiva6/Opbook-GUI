@@ -1,9 +1,11 @@
 import {Course} from '../course/course';
+import {LectureComment} from '../lecture-comment/lecture-comment';
 
 export class Lecture {
     public id: number;
     public creationTime: Date;
     public course: Course;
+    public comments: LectureComment[];
 
     public constructor(public name: string,
                        public link: string) {
@@ -19,6 +21,12 @@ export class Lecture {
 
         if (data.creationTime) {
             lecture.creationTime = new Date(data.creationTime);
+        }
+
+        if (data.comments) {
+            lecture.comments = data.comments.map(LectureComment.parseJson);
+        } else {
+            lecture.comments = [];
         }
 
         return lecture;

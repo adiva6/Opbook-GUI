@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpHandler} from '../../utils/http/http-handler';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
-import {Post} from "../../models/post/post";
+import {Post} from '../../models/post/post';
 
 @Injectable()
 export class PostCommentService {
