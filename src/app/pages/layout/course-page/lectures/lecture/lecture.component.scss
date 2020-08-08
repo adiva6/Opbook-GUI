@@ -1,0 +1,37 @@
+.lecture-video {
+  display: flex;
+  justify-content: center;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.comments-number {
+  color: dimgrey;
+  cursor: pointer;
+}
+
+.comments-number:hover {
+  text-decoration: underline;
+}
+
+.comments-meta {
+  align-self: flex-end;
+  margin-bottom: 5px !important;
+}
+
+.lecture-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.lecture-card {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 0 !important;
+}

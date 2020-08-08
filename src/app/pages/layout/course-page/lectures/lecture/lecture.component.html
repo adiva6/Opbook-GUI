@@ -1,0 +1,35 @@
+<mat-card class="lecture-card">
+    <mat-card-header>
+        <mat-card-title class="lecture-title">
+            {{lecture.name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{lecture.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="lecture-video">
+        <app-video [videoId]="lecture.link"></app-video>
+    </mat-card-content>
+    <mat-card-content class="no-margin-bottom">
+        <div *ngIf="countComments > 0" class="comments-meta">
+            <a (click)="showComments=!showComments">
+                <div class="comments-number">{{countComments}} Comments</div>
+            </a>
+        </div>
+        <div *ngIf="showComments" class="all-comments">
+<!--            <app-post-comments [comments]="post.comments"></app-post-comments>-->
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="no-margin-bottom no-padding-top">
+        <mat-divider></mat-divider>
+        <button mat-button (click)="showCommentForm=!showCommentForm">COMMENT</button>
+        <mat-divider></mat-divider>
+    </mat-card-actions>
+<!--    <mat-card-content>-->
+<!--        <app-post-comment-form-->
+<!--                [post]=post-->
+<!--                *ngIf="showCommentForm"-->
+<!--                (commentSubmitted)="updateComments($event)">-->
+<!--        </app-post-comment-form>-->
+<!--    </mat-card-content>-->
+</mat-card>

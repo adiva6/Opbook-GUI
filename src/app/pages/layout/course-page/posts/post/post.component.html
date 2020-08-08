@@ -37,7 +37,7 @@
     <mat-divider></mat-divider>
     <button *ngIf="!showLike" mat-button (click)="dislikePost()">DISLIKE</button>
     <button *ngIf="showLike" mat-button (click)="likePost()">LIKE</button>
-    <button mat-button (click)="showCommentForm=true">COMMENT</button>
+    <button mat-button (click)="showCommentForm=!showCommentForm">COMMENT</button>
     <mat-divider></mat-divider>
   </mat-card-actions>
   <mat-card-content>

@@ -25,6 +25,8 @@ import {PostCommentsComponent} from './course-page/posts/post/post-comments/post
 import {TimeAgoExtendsPipe} from "../../pipes/time-ago-pipe";
 import { PostFormComponent } from './course-page/posts/post-form/post-form.component';
 import {RouterModule} from "@angular/router";
+import { LectureComponent } from './course-page/lectures/lecture/lecture.component';
+import {VideoModule} from "../../common/video/video.module";
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import {RouterModule} from "@angular/router";
         MatSidenavModule,
         MatListModule,
         MatTabsModule,
-        MatIconModule
+        MatIconModule,
+        VideoModule
     ],
     exports: [
         SignupComponent
@@ -60,7 +63,8 @@ import {RouterModule} from "@angular/router";
         PostCommentFormComponent,
         PostCommentsComponent,
         TimeAgoExtendsPipe,
-        PostFormComponent
+        PostFormComponent,
+        LectureComponent
     ]
 })
 export class LayoutModule {

@@ -1,1 +1,5 @@
-<p>lectures works!</p>
+<div class="lectures-feed">
+    <ng-container *ngFor="let lecture of lectures">
+        <app-lecture [lecture]="lecture"></app-lecture>
+    </ng-container>
+</div>
