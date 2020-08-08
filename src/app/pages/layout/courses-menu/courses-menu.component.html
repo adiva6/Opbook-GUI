@@ -1,5 +1,9 @@
-<mat-selection-list #menu [multiple]="false" [(ngModel)]="selectedCourses">
-  <mat-list-option *ngFor="let course of courses" [value]="course">
+<mat-nav-list>
+  <a mat-list-item
+     [routerLink]="'/courses/' + course.courseSymbol"
+     [routerLinkActive]="['is-active']"
+     [routerLinkActiveOptions]="{ exact: false }"
+     *ngFor="let course of courses">
     {{course.name}}
-  </mat-list-option>
-</mat-selection-list>
+  </a>
+</mat-nav-list>

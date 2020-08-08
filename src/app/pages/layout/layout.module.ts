@@ -24,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {PostCommentsComponent} from './course-page/posts/post/post-comments/post-comments.component';
 import {TimeAgoExtendsPipe} from "../../pipes/time-ago-pipe";
 import { PostFormComponent } from './course-page/posts/post-form/post-form.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { PostFormComponent } from './course-page/posts/post-form/post-form.compo
         CommonModule,
         FormsModule,
         LayoutRoutingModule,
+        RouterModule,
         HeaderModule,
         MatCardModule,
         MatFormFieldModule,

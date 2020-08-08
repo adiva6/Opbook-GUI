@@ -2,7 +2,7 @@
   <mat-card-header>
     <div mat-card-avatar class="avatar-image"></div>
     <mat-card-title class="post-title">
-      {{post.title}} <div class="post-submitter">{{post.submitter.name}}</div>
+      {{post.title}} <div class="post-submitter">By {{post.submitter.name}}</div>
     </mat-card-title>
     <mat-card-subtitle>
       {{post.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
