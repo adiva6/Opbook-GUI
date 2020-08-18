@@ -1,0 +1,27 @@
+.review-page {
+    margin: 2em 4em 4em 4em;
+}
+
+.review-col {
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.review-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.review-card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0 !important;
+}

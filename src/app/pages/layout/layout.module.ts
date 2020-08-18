@@ -29,6 +29,7 @@ import { LectureComponent } from './course-page/lectures/lecture/lecture.compone
 import {VideoModule} from "../../common/video/video.module";
 import { LectureCommentsComponent } from './course-page/lectures/lecture/lecture-comments/lecture-comments.component';
 import { LectureCommentFormComponent } from './course-page/lectures/lecture/lecture-comment-form/lecture-comment-form.component';
+import {NgxStarsModule} from "ngx-stars";
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { LectureCommentFormComponent } from './course-page/lectures/lecture/lect
         MatListModule,
         MatTabsModule,
         MatIconModule,
-        VideoModule
+        VideoModule,
+        NgxStarsModule
     ],
     exports: [
         SignupComponent
