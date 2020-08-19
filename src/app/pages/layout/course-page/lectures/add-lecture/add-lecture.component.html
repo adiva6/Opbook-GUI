@@ -1,0 +1,33 @@
+<mat-card class="lecture-form" [formGroup]="lectureForm">
+    <mat-card-header>
+        <div mat-card-avatar class="upload-icon">
+            <mat-icon class="like-icon">
+            <span class="material-icons">
+                cloud_upload
+            </span>
+            </mat-icon>
+        </div>
+        <mat-card-title class="lecture-title">
+            <div>Upload a Lecture</div>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="lecture-form-card-content">
+        <mat-form-field class="lecture-form-title">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" [formControlName]="'title'">
+        </mat-form-field>
+        <mat-form-field class="lecture-form-content">
+            <mat-label>Youtube Video ID</mat-label>
+            <input matInput type="text" [formControlName]="'videoId'">
+            <mat-error *ngIf="lectureForm.controls['videoId'].errors?.videoDoesntExist">
+                Video doesn't exist
+            </mat-error>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="lecture-actions" align="end">
+        <mat-divider></mat-divider>
+        <button class="submit-btn" mat-button [disabled]="!lectureForm.valid" (click)="submitLecture()">
+            Upload
+        </button>
+    </mat-card-actions>
+</mat-card>

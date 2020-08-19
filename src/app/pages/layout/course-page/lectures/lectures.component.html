@@ -1,4 +1,11 @@
 <div class="lectures-feed">
+    <ng-container *ngIf="isAdmin()">
+        <app-add-lecture [course]="course" (lectureUploaded)="onLectureUpload($event)">
+        </app-add-lecture>
+    </ng-container>
+    <ng-container *ngIf="!isAdmin() && (!lectures || lectures.length === 0)">
+        <mat-card>No lectures were uploaded for this course yet...</mat-card>
+    </ng-container>
     <ng-container *ngFor="let lecture of lectures">
         <app-lecture [lecture]="lecture"></app-lecture>
     </ng-container>

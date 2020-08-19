@@ -16,4 +16,11 @@ export class LectureService {
                 map(rawLectures => rawLectures.map(Lecture.parseJson))
         );
     }
+
+    public uploadLecture(courseSymbol: string, lecture: Lecture): Observable<Lecture> {
+        return this.httpHandler.post(environment.SERVER_ADDRESS,
+            'courses/' + courseSymbol + '/lectures', lecture.serialize()).pipe(
+                map(Lecture.parseJson)
+        );
+    }
 }

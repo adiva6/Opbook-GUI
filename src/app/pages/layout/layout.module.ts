@@ -32,6 +32,7 @@ import { LectureCommentFormComponent } from './course-page/lectures/lecture/lect
 import {NgxStarsModule} from "ngx-stars";
 import { RateComponent } from './course-page/review/rate/rate.component';
 import { RatingResultsComponent } from './course-page/review/rating-results/rating-results.component';
+import { AddLectureComponent } from './course-page/lectures/add-lecture/add-lecture.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { RatingResultsComponent } from './course-page/review/rating-results/rati
         LectureCommentsComponent,
         LectureCommentFormComponent,
         RateComponent,
-        RatingResultsComponent
+        RatingResultsComponent,
+        AddLectureComponent
     ]
 })
 export class LayoutModule {

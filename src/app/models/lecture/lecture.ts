@@ -8,11 +8,11 @@ export class Lecture {
     public comments: LectureComment[];
 
     public constructor(public name: string,
-                       public link: string) {
+                       public videoId: string) {
     }
 
     public static parseJson(data: any): Lecture {
-        const lecture = new Lecture(data.name, data.link);
+        const lecture = new Lecture(data.name, data.videoId);
         lecture.id = data.id;
 
         if (data.course) {
@@ -30,6 +30,13 @@ export class Lecture {
         }
 
         return lecture;
+    }
+
+    public serialize(): object {
+        return {
+            'name': this.name,
+            'videoId': this.videoId
+        };
     }
 
 }

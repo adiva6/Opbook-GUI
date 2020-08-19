@@ -8,7 +8,7 @@
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="lecture-video">
-        <app-video #videoPlayer (playerReady)="updateDuration()" [videoId]="lecture.link"></app-video>
+        <app-video #videoPlayer (playerReady)="updateDuration()" [videoId]="lecture.videoId"></app-video>
     </mat-card-content>
     <mat-card-content class="no-margin-bottom">
         <div *ngIf="countComments > 0" class="comments-meta">

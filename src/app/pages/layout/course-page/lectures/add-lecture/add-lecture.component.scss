@@ -1,0 +1,36 @@
+.lecture-form {
+  margin-bottom: 1em;
+}
+
+.lecture-form-card-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0 !important;
+}
+
+.lecture-actions {
+  padding-top: 0 !important;
+}
+
+.lecture-form-title {
+  width: 50%;
+}
+
+.lecture-form-content {
+  width: 50%;
+}
+
+.lecture-title {
+  margin-top: 15px;
+}
+
+.submit-btn {
+  margin-top: 6px !important;
+}
+
+.upload-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b6eae;
+}
