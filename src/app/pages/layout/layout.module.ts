@@ -30,6 +30,8 @@ import {VideoModule} from "../../common/video/video.module";
 import { LectureCommentsComponent } from './course-page/lectures/lecture/lecture-comments/lecture-comments.component';
 import { LectureCommentFormComponent } from './course-page/lectures/lecture/lecture-comment-form/lecture-comment-form.component';
 import {NgxStarsModule} from "ngx-stars";
+import { RateComponent } from './course-page/review/rate/rate.component';
+import { RatingResultsComponent } from './course-page/review/rating-results/rating-results.component';
 
 
 @NgModule({
@@ -70,7 +72,9 @@ import {NgxStarsModule} from "ngx-stars";
         PostFormComponent,
         LectureComponent,
         LectureCommentsComponent,
-        LectureCommentFormComponent
+        LectureCommentFormComponent,
+        RateComponent,
+        RatingResultsComponent
     ]
 })
 export class LayoutModule {

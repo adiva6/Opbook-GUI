@@ -1,7 +1,9 @@
 import { User } from '../user/user';
+import {CourseRating} from '../course-rating/course-rating';
 
 export class Course {
   public students: User[];
+  public ratings: CourseRating[];
 
   constructor(public id: number,
               public name: string,
@@ -17,6 +19,12 @@ export class Course {
       course.students = data.students.map(User.parseJson);
     } else {
       course.students = [];
+    }
+
+    if (data.ratings) {
+      course.ratings = data.ratings.map(CourseRating.parseJson);
+    } else {
+      course.ratings = [];
     }
 
     return course;

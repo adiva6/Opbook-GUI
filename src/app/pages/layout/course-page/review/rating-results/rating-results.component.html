@@ -1,0 +1,45 @@
+<mat-card class="review-results-card">
+    <mat-card-header>
+        <mat-card-title class="review-results-title">
+            Course Scores
+        </mat-card-title>
+        <mat-card-subtitle>
+            Here's what other students thought of this course
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="review-results-content">
+        <p *ngIf="!isCourseRated">This course wasn't rated yet.</p>
+        <table *ngIf="isCourseRated">
+            <tr class="review-results-row">
+                <td class="review-results-col">Relevance: </td>
+                <td class="review-results-col">
+                    <ngx-stars [color]="'#4a6eae'"
+                               [wholeStars]="true"
+                               [readonly]="true"
+                               [initialStars]="relevance">
+                    </ngx-stars>
+                </td>
+            </tr>
+            <tr class="review-results-row">
+                <td class="review-results-col">Interest: </td>
+                <td class="review-results-col">
+                    <ngx-stars [color]="'#4a6eae'"
+                               [wholeStars]="true"
+                               [readonly]="true"
+                               [initialStars]="interest">
+                    </ngx-stars>
+                </td>
+            </tr>
+            <tr class="review-results-row">
+                <td class="review-results-col">Instruction: </td>
+                <td class="review-results-col">
+                    <ngx-stars [color]="'#4a6eae'"
+                               [wholeStars]="true"
+                               [readonly]="true"
+                               [initialStars]="instruction">
+                    </ngx-stars>
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

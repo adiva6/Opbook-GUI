@@ -16,11 +16,4 @@ export class CourseRatingService {
                 map(CourseRating.parseJson)
         );
     }
-
-    public getCourseRatings(courseSymbol: string): Observable<CourseRating[]> {
-        return this.httpHandler.get(environment.SERVER_ADDRESS,
-            'courses/' + courseSymbol + '/ratings').pipe(
-                map(ratings => ratings.map(CourseRating.parseJson))
-        );
-    }
 }

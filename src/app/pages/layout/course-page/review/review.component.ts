@@ -1,6 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Course} from '../../../../models/course/course';
 import {CourseRatingService} from "../../../../services/course-rating/course-rating.service";
+import {tap} from "rxjs/operators";
+import {Observable} from "rxjs";
+import {User} from "../../../../models/user/user";
+import {AuthService} from "../../../../services/auth/auth.service";
 import {CourseRating} from "../../../../models/course-rating/course-rating";
 
 @Component({
@@ -10,29 +14,24 @@ import {CourseRating} from "../../../../models/course-rating/course-rating";
 })
 export class ReviewComponent implements OnInit {
   @Input() course: Course;
-  private relevanceScore: number;
-  private interestScore: number;
-  private instructionScore: number;
+  private user: User;
 
-  constructor(private courseRatingService: CourseRatingService) { }
+  constructor(private courseRatingService: CourseRatingService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.initUser().subscribe();
   }
 
-  submitRating(): void {
-    const courseRating = new CourseRating(this.instructionScore, this.interestScore, this.relevanceScore);
-    this.courseRatingService.submitCourseRating(this.course.courseSymbol, courseRating).subscribe();
+  private initUser(): Observable<User> {
+    return this.authService.getUser().pipe(
+        tap(user => this.user = user));
   }
 
-  onRateRelevance($event: number): void {
-    this.relevanceScore = $event;
+  public get isRatedByMe(): boolean {
+    return this.course.ratings.some(rating => this.user && this.user.id === rating.submitter.id);
   }
 
-  onRateInterest($event: number): void {
-    this.interestScore = $event;
-  }
-
-  onRateInstruction($event: number): void {
-    this.instructionScore = $event;
+  public onCourseRate($event: CourseRating): void {
+    this.course.ratings.push($event);
   }
 }
