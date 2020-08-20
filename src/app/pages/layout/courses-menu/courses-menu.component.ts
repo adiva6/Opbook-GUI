@@ -27,12 +27,15 @@ export class CoursesMenuComponent implements OnInit {
   }
 
   private initCourses(): Observable<Course[]> {
-    return this.courseService.getAllCourseOfStudent(this.user.id).pipe(
-      tap(courses => {
-        this.courses =
-            courses.sort((c1, c2) => c1.name.localeCompare(c2.name));
-      })
-    );
-  }
+    const coursesPipe = tap((courses: Course[]) => {
+      this.courses =
+          courses.sort((c1, c2) => c1.name.localeCompare(c2.name));
+    });
 
+    if (this.user.isAdmin) {
+      return this.courseService.getAllCourses().pipe(coursesPipe);
+    } else {
+      return this.courseService.getAllCourseOfStudent(this.user.id).pipe(coursesPipe);
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import { User } from '../user/user';
+import {User} from '../user/user';
 import {CourseRating} from '../course-rating/course-rating';
 
 export class Course {

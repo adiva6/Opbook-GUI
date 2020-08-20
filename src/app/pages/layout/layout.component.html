@@ -6,6 +6,11 @@
     <ng-container *ngIf="user">
       <app-courses-menu [user]="user"></app-courses-menu>
     </ng-container>
+    <div *ngIf="!user?.isAdmin" class="join-div">
+      <button class="join-button" mat-raised-button (click)="this.router.navigateByUrl('/courses-signup')">
+        Join Courses
+      </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
   <div class="example-sidenav-content">

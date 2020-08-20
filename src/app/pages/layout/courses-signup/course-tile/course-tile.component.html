@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header class="course-tile-header">
+        <div mat-card-avatar class="course-tile-icon">
+            <mat-icon>
+                <span class="material-icons school-icon">
+                    school
+                </span>
+            </mat-icon>
+        </div>
+        <mat-card-title>
+            {{ course.name }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ course.courseSymbol }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="course-tile-content">
+        <img mat-card-image class="course-image" src="../../../../../assets/img/courses/{{course.image}}">
+    </mat-card-content>
+    <mat-card-actions>
+        <button *ngIf="!isEnrolled" mat-raised-button (click)="joinCourse()">JOIN</button>
+        <button *ngIf="isEnrolled" mat-raised-button (click)="leaveCourse()">LEAVE</button>
+    </mat-card-actions>
+</mat-card>

@@ -20,7 +20,8 @@ export class CourseGuard implements CanActivate, CanActivateChild {
         const courseSymbol = route.paramMap.get('courseSymbol');
         return forkJoin(this.initCourse(courseSymbol), this.initUser()).pipe(
             map(_ => {
-                return this.course.students.some(student => student.id === this.currentUser.id);
+                return this.course.students.some(student => student.id === this.currentUser.id) ||
+                    this.currentUser.isAdmin;
             })
         );
     }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../models/user/user';
 import {AuthService} from '../../services/auth/auth.service';
 import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,7 @@ import {tap} from 'rxjs/operators';
 export class LayoutComponent implements OnInit {
   public user: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, public router: Router) {
   }
 
   ngOnInit(): void {

@@ -4,6 +4,7 @@ import { Course } from '../../models/course/course';
 import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {HttpHandler} from '../../utils/http/http-handler';
+import {User} from '../../models/user/user';
 
 @Injectable()
 export class CourseService {
@@ -40,5 +41,19 @@ export class CourseService {
     }
 
     return this.getCourseBySymbol(courseSymbol);
+  }
+
+  public joinCourse(courseSymbol: string): Observable<User> {
+    return this.httpHandler.post(environment.SERVER_ADDRESS,
+        'courses/' + courseSymbol + '/students', {}).pipe(
+        map(User.parseJson)
+    );
+  }
+
+  public leaveCourse(courseSymbol: string): Observable<User> {
+    return this.httpHandler.delete(environment.SERVER_ADDRESS,
+        'courses/' + courseSymbol + '/students').pipe(
+            map(User.parseJson)
+    );
   }
 }

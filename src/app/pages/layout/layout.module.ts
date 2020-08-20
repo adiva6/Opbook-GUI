@@ -33,6 +33,9 @@ import {NgxStarsModule} from "ngx-stars";
 import { RateComponent } from './course-page/review/rate/rate.component';
 import { RatingResultsComponent } from './course-page/review/rating-results/rating-results.component';
 import { AddLectureComponent } from './course-page/lectures/add-lecture/add-lecture.component';
+import { CoursesSignupComponent } from './courses-signup/courses-signup.component';
+import {MatGridListModule} from "@angular/material/grid-list";
+import { CourseTileComponent } from './courses-signup/course-tile/course-tile.component';
 
 
 @NgModule({
@@ -52,7 +55,8 @@ import { AddLectureComponent } from './course-page/lectures/add-lecture/add-lect
         MatTabsModule,
         MatIconModule,
         VideoModule,
-        NgxStarsModule
+        NgxStarsModule,
+        MatGridListModule
     ],
     exports: [
         SignupComponent
@@ -76,7 +80,9 @@ import { AddLectureComponent } from './course-page/lectures/add-lecture/add-lect
         LectureCommentFormComponent,
         RateComponent,
         RatingResultsComponent,
-        AddLectureComponent
+        AddLectureComponent,
+        CoursesSignupComponent,
+        CourseTileComponent
     ]
 })
 export class LayoutModule {
