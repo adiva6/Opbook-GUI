@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 import { Course } from '../../models/course/course';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {HttpHandler} from '../../utils/http/http-handler';
 import {User} from '../../models/user/user';
@@ -9,6 +9,7 @@ import {User} from '../../models/user/user';
 @Injectable()
 export class CourseService {
   private selectedCourse: Course;
+  public coursesChanges: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>(null);
 
   constructor(private httpHandler: HttpHandler) {
   }
@@ -21,7 +22,8 @@ export class CourseService {
 
   public getAllCourseOfStudent(userId: number): Observable<Course[]> {
     return this.httpHandler.get(environment.SERVER_ADDRESS, 'users/' + userId + '/courses').pipe(
-      map((rawCourses: any[]) => rawCourses.map(Course.parseJson))
+      map((rawCourses: any[]) => rawCourses.map(Course.parseJson)),
+        tap(courses => this.coursesChanges.next(courses))
     );
   }
 

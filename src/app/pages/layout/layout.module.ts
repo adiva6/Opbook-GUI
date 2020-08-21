@@ -36,6 +36,7 @@ import { AddLectureComponent } from './course-page/lectures/add-lecture/add-lect
 import { CoursesSignupComponent } from './courses-signup/courses-signup.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import { CourseTileComponent } from './courses-signup/course-tile/course-tile.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CourseTileComponent } from './courses-signup/course-tile/course-tile.co
         MatIconModule,
         VideoModule,
         NgxStarsModule,
-        MatGridListModule
+        MatGridListModule,
+        MatToolbarModule
     ],
     exports: [
         SignupComponent

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Course} from '../../../../models/course/course';
 import {CourseRatingService} from "../../../../services/course-rating/course-rating.service";
 import {tap} from "rxjs/operators";
@@ -12,13 +12,17 @@ import {CourseRating} from "../../../../models/course-rating/course-rating";
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.css']
 })
-export class ReviewComponent implements OnInit {
+export class ReviewComponent implements OnInit, OnChanges {
   @Input() course: Course;
   private user: User;
 
   constructor(private courseRatingService: CourseRatingService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.initUser().subscribe();
+  }
+
+  ngOnChanges(): void {
     this.initUser().subscribe();
   }
 

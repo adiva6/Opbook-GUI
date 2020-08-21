@@ -29,6 +29,7 @@ import {LectureService} from './services/lecture/lecture.service';
 import {LectureCommentService} from './services/lecture-comment/lecture-comment.service';
 import {CourseRatingService} from './services/course-rating/course-rating.service';
 import {VideoService} from "./services/video/video.service";
+import {SidenavService} from "./services/sidenav/sidenav.service";
 
 
 @NgModule({
@@ -55,7 +56,7 @@ import {VideoService} from "./services/video/video.service";
   providers: [
     AuthService, AuthGuard, CourseGuard, CourseService, UserService, SignupService, AlertService,
     PostService, HttpHandler, PostCommentService, LikeService, LectureService, LectureCommentService,
-    CourseRatingService, VideoService
+    CourseRatingService, VideoService, SidenavService
   ],
   bootstrap: [AppComponent]
 })

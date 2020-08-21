@@ -1,11 +1,8 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../models/user/user';
 import {tap} from 'rxjs/operators';
 import {Course} from '../../../models/course/course';
-import {MatSelectionList} from '@angular/material/list';
-import {ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router} from '@angular/router';
 import {CourseService} from '../../../services/course/course.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-courses-menu',
@@ -14,28 +11,31 @@ import {Observable} from 'rxjs';
 })
 export class CoursesMenuComponent implements OnInit {
   @Input() user: User;
-  @ViewChild('menu') coursesMenu: MatSelectionList;
 
   public courses: Course[];
 
-  constructor(private courseService: CourseService,
-              private router: Router) {
+  constructor(private courseService: CourseService) {
   }
 
   ngOnInit(): void {
-      this.initCourses().subscribe();
+      this.initCourses();
+      this.courseService.coursesChanges.subscribe(courses => this.courses = courses);
   }
 
-  private initCourses(): Observable<Course[]> {
+  private initCourses(): void {
     const coursesPipe = tap((courses: Course[]) => {
       this.courses =
           courses.sort((c1, c2) => c1.name.localeCompare(c2.name));
     });
 
+    let courseObservable$;
+
     if (this.user.isAdmin) {
-      return this.courseService.getAllCourses().pipe(coursesPipe);
+      courseObservable$ = this.courseService.getAllCourses().pipe(coursesPipe);
     } else {
-      return this.courseService.getAllCourseOfStudent(this.user.id).pipe(coursesPipe);
+      courseObservable$ = this.courseService.getAllCourseOfStudent(this.user.id).pipe(coursesPipe);
     }
+
+    courseObservable$.subscribe();
   }
 }

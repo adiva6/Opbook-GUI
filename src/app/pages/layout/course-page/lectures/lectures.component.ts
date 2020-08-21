@@ -3,7 +3,7 @@ import {Course} from '../../../../models/course/course';
 import {Lecture} from '../../../../models/lecture/lecture';
 import {LectureService} from '../../../../services/lecture/lecture.service';
 import {tap} from 'rxjs/operators';
-import {AuthService} from "../../../../services/auth/auth.service";
+import {AuthService} from '../../../../services/auth/auth.service';
 
 @Component({
     selector: 'app-lectures',

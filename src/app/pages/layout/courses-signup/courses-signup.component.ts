@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Course} from '../../../models/course/course';
 import {tap} from 'rxjs/operators';
 import {CourseService} from '../../../services/course/course.service';
-import {User} from "../../../models/user/user";
-import {Observable} from "rxjs";
-import {AuthService} from "../../../services/auth/auth.service";
+import {User} from '../../../models/user/user';
+import {AuthService} from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-courses-signup',

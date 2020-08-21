@@ -3,6 +3,7 @@ import {filter, tap} from 'rxjs/operators';
 import {Course} from '../../../models/course/course';
 import {CourseService} from '../../../services/course/course.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {SidenavService} from '../../../services/sidenav/sidenav.service';
 
 @Component({
   selector: 'app-course-page',
@@ -13,6 +14,7 @@ export class CoursePageComponent implements OnInit {
   public course: Course;
 
   constructor(private courseService: CourseService,
+              public sidenavService: SidenavService,
               private router: Router,
               private route: ActivatedRoute) { }
 

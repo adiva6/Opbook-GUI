@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {Lecture} from '../../../../../models/lecture/lecture';
-import {VideoComponent} from "../../../../../common/video/video.component";
-import {LectureComment} from "../../../../../models/lecture-comment/lecture-comment";
+import {VideoComponent} from '../../../../../common/video/video.component';
+import {LectureComment} from '../../../../../models/lecture-comment/lecture-comment';
 
 @Component({
   selector: 'app-lecture',
@@ -11,11 +11,10 @@ import {LectureComment} from "../../../../../models/lecture-comment/lecture-comm
 export class LectureComponent implements OnInit, OnChanges {
   @Input() lecture: Lecture;
   @ViewChild('videoPlayer') videoPlayer: VideoComponent;
-  public showCommentForm: boolean = false;
+  public showCommentForm = false;
   public countComments: number;
-  public showComments: boolean = false;
+  public showComments = false;
   public videoDuration: number;
-  private readonly YOUTUBE_URL = 'https://www.youtube.com/watch?';
 
   constructor() { }
 

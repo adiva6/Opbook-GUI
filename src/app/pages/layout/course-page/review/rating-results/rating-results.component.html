@@ -13,8 +13,9 @@
             <tr class="review-results-row">
                 <td class="review-results-col">Relevance: </td>
                 <td class="review-results-col">
-                    <ngx-stars [color]="'#4a6eae'"
-                               [wholeStars]="true"
+                    <ngx-stars *ngIf="isScoreCalculated"
+                               [color]="'#4a6eae'"
+                               [wholeStars]="false"
                                [readonly]="true"
                                [initialStars]="relevance">
                     </ngx-stars>
@@ -23,8 +24,9 @@
             <tr class="review-results-row">
                 <td class="review-results-col">Interest: </td>
                 <td class="review-results-col">
-                    <ngx-stars [color]="'#4a6eae'"
-                               [wholeStars]="true"
+                    <ngx-stars *ngIf="isScoreCalculated"
+                               [color]="'#4a6eae'"
+                               [wholeStars]="false"
                                [readonly]="true"
                                [initialStars]="interest">
                     </ngx-stars>
@@ -33,8 +35,9 @@
             <tr class="review-results-row">
                 <td class="review-results-col">Instruction: </td>
                 <td class="review-results-col">
-                    <ngx-stars [color]="'#4a6eae'"
-                               [wholeStars]="true"
+                    <ngx-stars *ngIf="isScoreCalculated"
+                               [color]="'#4a6eae'"
+                               [wholeStars]="false"
                                [readonly]="true"
                                [initialStars]="instruction">
                     </ngx-stars>

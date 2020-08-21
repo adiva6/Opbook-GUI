@@ -28,14 +28,16 @@ export class CourseTileComponent implements OnInit {
   public leaveCourse(): void {
     this.courseService.leaveCourse(this.course.courseSymbol).pipe(
         tap(student => {
-          const studentIndex = this.course.students.indexOf(student);
+          const studentIndex = this.course.students.findIndex(u => u.id === this.user.id);
           this.course.students.splice(studentIndex);
         }),
         catchError(_ => {
           this.alertService.error('Failed leaving course');
           return of(undefined);
         })
-    ).subscribe();
+    ).subscribe(_ => {
+        this.courseService.getAllCourseOfStudent(this.user.id).subscribe();
+    });
   }
 
   public joinCourse(): void {
@@ -47,7 +49,9 @@ export class CourseTileComponent implements OnInit {
           this.alertService.error('Failed joining course');
           return of(undefined);
         })
-    ).subscribe();
+    ).subscribe(_ => {
+        this.courseService.getAllCourseOfStudent(this.user.id).subscribe();
+    });
   }
 
 }
