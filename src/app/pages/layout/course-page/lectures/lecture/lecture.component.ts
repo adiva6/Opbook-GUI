@@ -2,6 +2,7 @@ import {AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild} from '@an
 import {Lecture} from '../../../../../models/lecture/lecture';
 import {VideoComponent} from '../../../../../common/video/video.component';
 import {LectureComment} from '../../../../../models/lecture-comment/lecture-comment';
+import {Course} from "../../../../../models/course/course";
 
 @Component({
   selector: 'app-lecture',
@@ -10,6 +11,7 @@ import {LectureComment} from '../../../../../models/lecture-comment/lecture-comm
 })
 export class LectureComponent implements OnInit, OnChanges {
   @Input() lecture: Lecture;
+  @Input() course: Course;
   @ViewChild('videoPlayer') videoPlayer: VideoComponent;
   public showCommentForm = false;
   public countComments: number;

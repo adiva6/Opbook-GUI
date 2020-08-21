@@ -42,6 +42,7 @@
   </mat-card-actions>
   <mat-card-content>
     <app-post-comment-form
+            [course]="course"
             [post]=post
             *ngIf="showCommentForm"
             (commentSubmitted)="updateComments($event)">

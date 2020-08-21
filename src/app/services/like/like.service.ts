@@ -11,16 +11,16 @@ export class LikeService {
     public constructor(private httpHandler: HttpHandler) {
     }
 
-    public likePost(post: Post): Observable<User> {
+    public likePost(courseSymbol: string, post: Post): Observable<User> {
         return this.httpHandler.post(environment.SERVER_ADDRESS,
-            'posts/' + post.id + '/likes', {}).pipe(
+            'courses/' + courseSymbol + '/posts/' + post.id + '/likes', {}).pipe(
                 map(User.parseJson)
         );
     }
 
-    public dislikePost(post: Post): Observable<User> {
+    public dislikePost(courseSymbol: string, post: Post): Observable<User> {
         return this.httpHandler.delete(environment.SERVER_ADDRESS,
-            'posts/' + post.id + '/likes').pipe(
+            'courses/' + courseSymbol + '/posts/' + post.id + '/likes').pipe(
             map(User.parseJson)
         );
     }

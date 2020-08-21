@@ -8,7 +8,6 @@ import { HeaderModule } from './common/header/header.module';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { CourseService } from './services/course/course.service';
-import { UserService } from './services/user/user.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,8 +27,8 @@ import {CourseGuard} from './guards/course/course.guard';
 import {LectureService} from './services/lecture/lecture.service';
 import {LectureCommentService} from './services/lecture-comment/lecture-comment.service';
 import {CourseRatingService} from './services/course-rating/course-rating.service';
-import {VideoService} from "./services/video/video.service";
-import {SidenavService} from "./services/sidenav/sidenav.service";
+import {VideoService} from './services/video/video.service';
+import {SidenavService} from './services/sidenav/sidenav.service';
 
 
 @NgModule({
@@ -54,9 +53,9 @@ import {SidenavService} from "./services/sidenav/sidenav.service";
     MatSnackBarModule
   ],
   providers: [
-    AuthService, AuthGuard, CourseGuard, CourseService, UserService, SignupService, AlertService,
+    AuthService, AuthGuard, CourseGuard, CourseService, SignupService, AlertService, SidenavService,
     PostService, HttpHandler, PostCommentService, LikeService, LectureService, LectureCommentService,
-    CourseRatingService, VideoService, SidenavService
+    CourseRatingService, VideoService
   ],
   bootstrap: [AppComponent]
 })

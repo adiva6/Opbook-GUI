@@ -8,6 +8,7 @@ import {AlertService} from '../../../../../services/alert/alert.service';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user/user';
 import {TimeAgoExtendsPipe} from "../../../../../pipes/time-ago-pipe";
+import {Course} from "../../../../../models/course/course";
 
 
 @Component({
@@ -16,6 +17,7 @@ import {TimeAgoExtendsPipe} from "../../../../../pipes/time-ago-pipe";
     styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit, OnChanges {
+    @Input() course: Course;
     @Input() post: Post;
     public showCommentForm = false;
     public showComments = false;
@@ -48,7 +50,7 @@ export class PostComponent implements OnInit, OnChanges {
     }
 
     public likePost(): void {
-        this.likeService.likePost(this.post).pipe(
+        this.likeService.likePost(this.course.courseSymbol, this.post).pipe(
             tap(user => {
                 this.post.usersWhoLiked.push(user);
                 this.updateAmounts();
@@ -74,7 +76,7 @@ export class PostComponent implements OnInit, OnChanges {
     }
 
     public dislikePost(): void {
-        this.likeService.dislikePost(this.post).pipe(
+        this.likeService.dislikePost(this.course.courseSymbol, this.post).pipe(
             tap(user => {
                 this.post.usersWhoLiked = this.post.usersWhoLiked.filter(u => u.id !== user.id);
                 this.updateAmounts();

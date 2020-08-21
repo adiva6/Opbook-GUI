@@ -7,6 +7,7 @@ import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import {LectureCommentService} from '../../../../../../services/lecture-comment/lecture-comment.service';
 import {VideoComponent} from '../../../../../../common/video/video.component';
 import {AlertService} from '../../../../../../services/alert/alert.service';
+import {Course} from "../../../../../../models/course/course";
 
 @Component({
     selector: 'app-lecture-comment-form',
@@ -15,6 +16,7 @@ import {AlertService} from '../../../../../../services/alert/alert.service';
 })
 export class LectureCommentFormComponent implements OnInit {
     @Input() lecture: Lecture;
+    @Input() course: Course;
     @Input() player: VideoComponent;
     @Output() commentSubmitted: EventEmitter<LectureComment> = new EventEmitter<LectureComment>();
     @ViewChild('autosize') autosize: CdkTextareaAutosize;
@@ -56,7 +58,7 @@ export class LectureCommentFormComponent implements OnInit {
         }
 
         const comment = new LectureComment(contentControl.value, this.totalReferenceTimeSeconds);
-        this.lectureCommentService.submitLectureComment(this.lecture, comment).pipe(
+        this.lectureCommentService.submitLectureComment(this.course.courseSymbol, this.lecture, comment).pipe(
             tap(submittedComment => {
                 this.commentSubmitted.emit(submittedComment);
                 this.totalReferenceTimeSeconds = 0;

@@ -7,6 +7,6 @@
         <mat-card>No lectures were uploaded for this course yet...</mat-card>
     </ng-container>
     <ng-container *ngFor="let lecture of lectures">
-        <app-lecture [lecture]="lecture"></app-lecture>
+        <app-lecture [course]="course" [lecture]="lecture"></app-lecture>
     </ng-container>
 </div>

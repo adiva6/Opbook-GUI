@@ -29,6 +29,7 @@
     </mat-card-actions>
     <mat-card-content>
         <app-lecture-comment-form
+                [course]="course"
                 [lecture]=lecture
                 [player]="videoPlayer"
                 *ngIf="showCommentForm"

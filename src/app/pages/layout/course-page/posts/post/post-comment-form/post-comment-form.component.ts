@@ -7,6 +7,7 @@ import {PostCommentService} from '../../../../../../services/post-comment/post-c
 import {PostComment} from '../../../../../../models/post-comment/post-comment';
 import {AuthService} from '../../../../../../services/auth/auth.service';
 import {User} from '../../../../../../models/user/user';
+import {Course} from "../../../../../../models/course/course";
 
 @Component({
   selector: 'app-post-comment-form',
@@ -14,6 +15,7 @@ import {User} from '../../../../../../models/user/user';
   styleUrls: ['./post-comment-form.component.scss']
 })
 export class PostCommentFormComponent implements OnInit {
+  @Input() course: Course;
   @Input() post: Post;
   @Output() commentSubmitted: EventEmitter<PostComment> = new EventEmitter<PostComment>();
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
@@ -51,7 +53,7 @@ export class PostCommentFormComponent implements OnInit {
     const contentControl = this.commentForm.get('content');
     if (this.commentForm.valid && !!contentControl.value) {
       const comment = new PostComment(contentControl.value);
-      this.postCommentService.submitPostComment(this.post, comment).pipe(
+      this.postCommentService.submitPostComment(this.course.courseSymbol, this.post, comment).pipe(
           tap(submittedComment => {
             this.commentSubmitted.emit(submittedComment);
             this.commentForm.reset();

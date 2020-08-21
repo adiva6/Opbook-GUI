@@ -11,9 +11,9 @@ export class PostCommentService {
     public constructor(private httpHandler: HttpHandler) {
     }
 
-    public submitPostComment(post: Post, postComment: PostComment): Observable<PostComment> {
+    public submitPostComment(courseSymbol: string, post: Post, postComment: PostComment): Observable<PostComment> {
         return this.httpHandler.post(environment.SERVER_ADDRESS,
-            'posts/' + post.id + '/comments', postComment.serialize())
+            'courses/' + courseSymbol + '/posts/' + post.id + '/comments', postComment.serialize())
             .pipe(map(PostComment.parseJson));
     }
 }

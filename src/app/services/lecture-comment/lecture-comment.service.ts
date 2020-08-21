@@ -12,9 +12,9 @@ export class LectureCommentService {
 
     }
 
-    public submitLectureComment(lecture: Lecture, lectureComment: LectureComment): Observable<LectureComment> {
+    public submitLectureComment(courseSymbol: string, lecture: Lecture, lectureComment: LectureComment): Observable<LectureComment> {
         return this.httpHandler.post(environment.SERVER_ADDRESS,
-            'lectures/' + lecture.id + '/comments', lectureComment.serialize())
+            'courses/' + courseSymbol + '/lectures/' + lecture.id + '/comments', lectureComment.serialize())
             .pipe(map(LectureComment.parseJson));
     }
 
