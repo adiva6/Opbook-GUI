@@ -7,8 +7,8 @@ import {Observable, of} from 'rxjs';
 import {AlertService} from '../../../../../services/alert/alert.service';
 import {AuthService} from '../../../../../services/auth/auth.service';
 import {User} from '../../../../../models/user/user';
-import {TimeAgoExtendsPipe} from "../../../../../pipes/time-ago-pipe";
-import {Course} from "../../../../../models/course/course";
+import {TimeAgoExtendsPipe} from '../../../../../pipes/time-ago-pipe';
+import {Course} from '../../../../../models/course/course';
 
 
 @Component({

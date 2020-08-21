@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {Lecture} from '../../../../../models/lecture/lecture';
 import {VideoComponent} from '../../../../../common/video/video.component';
 import {LectureComment} from '../../../../../models/lecture-comment/lecture-comment';
-import {Course} from "../../../../../models/course/course";
+import {Course} from '../../../../../models/course/course';
+import {TimeAgoExtendsPipe} from '../../../../../pipes/time-ago-pipe';
 
 @Component({
   selector: 'app-lecture',

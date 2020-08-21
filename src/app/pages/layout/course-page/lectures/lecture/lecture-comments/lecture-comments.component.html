@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="comment-creation-time">
-            {{comment.creationTime.toLocaleString('en-US', { hour12: false }) | timeAgo}}
+            {{comment.creationTime.toLocaleString() | timeAgo}}
         </div>
     </div>
     <div class="comment-content">{{comment.content}}</div>
