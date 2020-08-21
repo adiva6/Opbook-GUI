@@ -4,6 +4,7 @@ import {tap} from 'rxjs/operators';
 import {CourseService} from '../../../services/course/course.service';
 import {User} from '../../../models/user/user';
 import {AuthService} from '../../../services/auth/auth.service';
+import {SidenavService} from "../../../services/sidenav/sidenav.service";
 
 @Component({
   selector: 'app-courses-signup',
@@ -15,7 +16,8 @@ export class CoursesSignupComponent implements OnInit {
   public user: User;
 
   constructor(private courseService: CourseService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              public sidenavService: SidenavService) { }
 
   ngOnInit(): void {
     this.initUser();
