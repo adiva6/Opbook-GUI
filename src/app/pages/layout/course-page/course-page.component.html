@@ -1,11 +1,11 @@
 <ng-container *ngIf="course">
-  <mat-toolbar color="primary">
+  <mat-toolbar class="course-title" color="primary">
     <button mat-icon-button (click)="sidenavService.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>{{course.name}}</span>
   </mat-toolbar>
-  <mat-tab-group>
+  <mat-tab-group class="course-tabs">
     <mat-tab label="Feed">
       <app-posts [course]="course"></app-posts>
     </mat-tab>

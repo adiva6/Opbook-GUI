@@ -2,3 +2,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.course-title {
+  position: fixed;
+  display: flex;
+  z-index: 12;
+}
+
+.course-tabs {
+  padding-top: 64px;
+}
