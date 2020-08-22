@@ -4,7 +4,7 @@ import {AuthService} from '../../services/auth/auth.service';
 @Component({
   selector: 'app-account-logout',
   templateUrl: './account-logout.component.html',
-  styleUrls: ['./account-logout.component.css']
+  styleUrls: ['./account-logout.component.scss']
 })
 export class AccountLogoutComponent {
 
