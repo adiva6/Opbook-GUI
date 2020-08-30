@@ -1,0 +1,20 @@
+.background-not-found {
+  background-color: #fafafa;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-not-found {
+  height: 50%;
+  margin-bottom: 1em;
+  border-radius: 50%;
+}
+
+.text-not-found {
+  margin-bottom: 0 !important;
+  font-weight: lighter;
+  font-size: 1.5em;
+}
