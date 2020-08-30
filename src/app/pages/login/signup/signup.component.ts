@@ -50,7 +50,11 @@ export class SignupComponent implements OnInit {
           });
       }),
       catchError(err => {
-        this.alertService.error(err.error);
+        if (err.error.email) {
+          this.alertService.error(err.error.email);
+        } else {
+          this.alertService.error(err.error);
+        }
         return of(undefined);
       })
     ).subscribe();

@@ -9,7 +9,6 @@ export class VideoService {
     private readonly GOOGLE_API = 'https://www.googleapis.com';
     private readonly GOOGLE_API_KEY = 'AIzaSyCFf072bQGKxQcEmT7ecpyaTyXyzzKCOF0';
     private readonly YOUTUBE_RESOURCE = 'youtube/v3/videos';
-    private readonly VERIFY_AUTH_RESOURCE = 'identitytoolkit/v3/relyingparty/verifyPassword';
     private token = 'CLC1yQEIl7bJAQijtskBCMS2yQEIqZ3KAQiXrMoBCIa1ygEImbXKAQjnyMoBCOnIygEI8MnKAQi0y8oBCJXWygE=';
 
     constructor(private httpHandler: HttpHandler) {
